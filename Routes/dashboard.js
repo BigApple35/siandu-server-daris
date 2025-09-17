@@ -1,11 +1,11 @@
 import express from 'express';
 import con from '../db_connect.js';
-import { authenticateAdminToken } from '../authentication.js';
+import { authenticateUserToken  } from '../authentication.js';
 
 const dashboardRoutes = express.Router();
 
 // GET /dashboard/stats - Get comprehensive dashboard statistics
-dashboardRoutes.get('/stats', authenticateAdminToken, (req, res) => {
+dashboardRoutes.get('/stats', authenticateUserToken , (req, res) => {
   try {
     // Get current month and year
     const currentDate = new Date();
@@ -156,7 +156,7 @@ dashboardRoutes.get('/stats', authenticateAdminToken, (req, res) => {
 });
 
 // GET /dashboard/quick-stats - Get quick overview statistics
-dashboardRoutes.get('/quick-stats', authenticateAdminToken, (req, res) => {
+dashboardRoutes.get('/quick-stats', authenticateUserToken , (req, res) => {
   try {
     const quickStatsQuery = `
       SELECT 
