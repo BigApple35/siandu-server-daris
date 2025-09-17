@@ -156,7 +156,7 @@ dashboardRoutes.get('/stats', authenticateAdminToken, (req, res) => {
 });
 
 // GET /dashboard/quick-stats - Get quick overview statistics
-dashboardRoutes.get('/quick-stats', authenticateUserToken, (req, res) => {
+dashboardRoutes.get('/quick-stats', authenticateAdminToken, (req, res) => {
   try {
     const quickStatsQuery = `
       SELECT 
