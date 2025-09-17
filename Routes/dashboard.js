@@ -1,11 +1,11 @@
 import express from 'express';
 import con from '../db_connect.js';
-import { authenticateUserToken } from '../authentication.js';
+import { authenticateAdminToken } from '../authentication.js';
 
 const dashboardRoutes = express.Router();
 
 // GET /dashboard/stats - Get comprehensive dashboard statistics
-dashboardRoutes.get('/stats', authenticateUserToken, (req, res) => {
+dashboardRoutes.get('/stats', authenticateAdminToken, (req, res) => {
   try {
     // Get current month and year
     const currentDate = new Date();
