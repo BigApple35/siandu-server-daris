@@ -33,7 +33,6 @@ res.header("Access-Control-Allow-Origin", "*");
             return res.status(403).json({ message: 'Invalid Token' });
         }
         var role = user.role
-        if (role === 3421) return res.status(403).json({ message: 'Only admin can access' });
         
         req.user = user;
 
