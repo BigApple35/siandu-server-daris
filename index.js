@@ -21,10 +21,15 @@ app.use(cors({
 }));
 
 
-con.connect((err) =>{
-    if(err) console.log(err);
-    console.log("Database terkoneksi");
-})
+con.getConnection((err, connection) => {
+  if (err) {
+    console.error("Database connection failed:", err);
+  } else {
+    console.log("Database connected ✅");
+    connection.release(); // return to pool
+  }
+});
+
 
 // ROUTE
 app.use('/', routes)
