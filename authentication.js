@@ -23,10 +23,6 @@ export const authenticateAdminToken = (req, res, next) =>{
     if (!token) {
         return res.status(401).json({ message: 'Access Denied: No token provided' });
     }
-res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "*");
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Credentials", "true");
 
     jwt.verify(token, secretKey, (err, user) => {
         if (err) {
