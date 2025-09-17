@@ -13,11 +13,6 @@ authRoutes.post('/login', (req, res) => {
   var email, password;
   var reqBody = req.body;
 
-  res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "*");
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Credentials", "true");
-
   email = reqBody.email;
   password = reqBody.password;
 
